@@ -1,5 +1,5 @@
 # dev-machine
-My ubuntu python development machine
+My ubuntu machine for python development.
 
 Installation
 --------------------
