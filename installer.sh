@@ -165,8 +165,7 @@ apt_install 				\
 	libssl-dev			\
 	libpq-dev			\
 	libreadline-gplv2-dev           \ 
-	libncursesw5-dev                \ 
-	libsqlite3-dev                  \
+	bzip2-devel                     \
 	tk-dev                          \
 	libgdbm-dev                     \
 	libc6-dev                       \
