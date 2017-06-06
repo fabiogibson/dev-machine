@@ -161,6 +161,8 @@ apt_install 				\
 	git				\
 	build-essential 		\
 	python-dev			\
+	python3-dev                     \
+	libffi-dev                      \
 	python-setuptools		\
         python-software-properties	\
 	openssl 			\
