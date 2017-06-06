@@ -64,7 +64,7 @@ install_dotfiles() {
 	for file in zshrc zshenv conkyrc tmux.conf; do
 		if [ ! -f "$HOME/.$file" ]; then
 			echo Creating $HOME/.$file
-			curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file > 2>&1
+			curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1
 		else
 			echo Skipping $HOME/.$file
 		fi
