@@ -14,10 +14,12 @@ What will be installed
 **Libs**
    * build-essential
    * python-dev
+   * python3-dev
    * python-setuptools
    * python-software-properties
    * pyenv
    * openssl
+   * libffi-dev
    * libssl-dev
    * libpq-dev
    
