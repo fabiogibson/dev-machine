@@ -52,8 +52,8 @@ install_ohmyzsh() {
 install_powerline_fonts() {
 	if [ ! -f "$HOME/.local/share/fonts/Meslo LG L DZ Regular for Powerline.ttf" ]; then
 		echo Installing Powerline fonts...
-		git clone https://github.com/powerline/fonts.git ./fonts/
-		./fonts/install.sh "Meslo LG L DZ Regular for Powerline"
+		git clone https://github.com/powerline/fonts.git ./fonts/ 2>&1
+		./fonts/install.sh "Meslo LG L DZ Regular for Powerline" 2>&1
 		rm -rf ./fonts
 	else
 		echo Skipping Powerline fonts...
@@ -62,19 +62,15 @@ install_powerline_fonts() {
 
 install_dotfiles() {
 	for file in zshrc zshenv conkyrc tmux.conf; do
-		if [ ! -f "$HOME/.$file" ]; then
-			echo Creating $HOME/.$file
-			curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1
-		else
-			echo Skipping $HOME/.$file
-		fi
+		echo Creating $HOME/.$file
+		curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1	
 	done
 }
 
 install_ranger() {
 	if ! cmd_exists ranger; then
 		echo Installing Ranger...
-		sudo git clone git://git.savannah.nongnu.org/ranger.git /opt/ranger
+		sudo git clone git://git.savannah.nongnu.org/ranger.git /opt/ranger 2>&1
 		sudo ln -s /opt/ranger/ranger.py /usr/local/bin/ranger
 	fi
 }
@@ -100,7 +96,7 @@ install_skype() {
 		echo Installing Skype For Linux...
 		curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
 		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
-		apt_install --allow-unauthenticated skypeforlinux
+		apt_install skypeforlinux
 	fi
 }
 
@@ -168,6 +164,13 @@ apt_install 				\
 	openssl 			\
 	libssl-dev			\
 	libpq-dev			\
+	libreadline-gplv2-dev           \ 
+	libncursesw5-dev                \ 
+	libsqlite3-dev                  \
+	tk-dev                          \
+	libgdbm-dev                     \
+	libc6-dev                       \
+	libbz2-dev                      \
 	zsh 				\
 	tmux 				\
 	silversearcher-ag 		\
