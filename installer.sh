@@ -165,7 +165,7 @@ apt_install 				\
 	libssl-dev			\
 	libpq-dev			\
 	libreadline-gplv2-dev           \ 
-	bzip2                     \
+	bzip2                           \
 	tk-dev                          \
 	libgdbm-dev                     \
 	libc6-dev                       \
