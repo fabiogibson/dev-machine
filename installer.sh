@@ -161,12 +161,13 @@ configure_git() {
 	git config --global diff.external meld_git	
 }
 
+apt_install curl
+
 install_googlechrome_ppa
 install_skype_ppa
 
 apt_install 				\
 	git				\
-	curl                            \
 	zsh				\
 	build-essential 		\
 	python-dev			\
