@@ -38,7 +38,13 @@ install_pyenv() {
 }
 	
 install_ohmyzsh() {
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	ZSH=~/.oh-my-zsh
+	umask g-w,o-w
+
+	env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
+  		printf "Error: git clone of oh-my-zsh repo failed\n"
+  		exit 1
+  	}
 }
 
 install_powerline_fonts() {
@@ -187,4 +193,10 @@ mkdir -p $HOME/.virtualenvs $HOME/Projects
 install_ohmyzsh
 install_dotfiles
 
+TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+	chsh -s $(grep /zsh$ /etc/shells | tail -1)
+fi
+
+env zsh
 echo It\'s all done!
