@@ -148,6 +148,7 @@ configure_git() {
 apt_install 				\
 	git				\
 	curl                            \
+: <<'END'
 	build-essential 		\
 	python-dev			\
 	python3-dev                     \
@@ -172,8 +173,9 @@ apt_install 				\
 	synapse 			\
 	vim 				\
 	meld				
+END
 
-sudo chsh `which zsh`
+sudo chsh -s `which zsh`
 
 # install_pyenv
 # create_virtual_env 3.6.1 py3
