@@ -155,6 +155,7 @@ configure_git() {
 
 apt_install 				\
 	git				\
+	curl                            \
 	build-essential 		\
 	python-dev			\
 	python3-dev                     \
