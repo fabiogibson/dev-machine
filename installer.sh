@@ -62,7 +62,6 @@ install_dotfiles() {
 
 install_ranger() {
 	if ! cmd_exists ranger; then
-		echo Installing Ranger...
 		sudo git clone git://git.savannah.nongnu.org/ranger.git /opt/ranger 2>&1
 		sudo ln -s /opt/ranger/ranger.py /usr/local/bin/ranger
 	fi
@@ -70,7 +69,6 @@ install_ranger() {
 
 install_docker() {
 	if ! cmd_exists docker; then
-		echo Installing Docker...
 		curl -sSL https://get.docker.com/ | sh
 		sudo usermod -a -G docker `whoami`
 	fi
@@ -78,7 +76,6 @@ install_docker() {
 
 install_nodejs() {
 	if ! cmd_exists node; then
-		echo Installing NodeJs...
 		curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 		apt_install nodejs
 	fi
@@ -86,7 +83,6 @@ install_nodejs() {
 
 install_skype() {
 	if ! cmd_exists skypeforlinux; then
-		echo Installing Skype For Linux...
 		curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
 		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
 		apt_install skypeforlinux
@@ -95,7 +91,6 @@ install_skype() {
 
 install_wrk() {
 	if ! cmd_exists wrk; then
-		echo Installing Wrk...
 		git clone https://github.com/wg/wrk.git > /dev/null
 		cd wrk && make > /dev/null
 		sudo cp wrk /usr/local/bin
