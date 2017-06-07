@@ -4,9 +4,13 @@ My ubuntu machine for python development.
 Installation
 --------------------
 
-type::
+#### curl
 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/fabiogibson/dev-machine/master/installer.sh)"
+    
+#### wget
+
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 What will be installed
 ---------------------------
