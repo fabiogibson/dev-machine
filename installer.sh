@@ -41,12 +41,8 @@ install_pyenv() {
 	
 
 install_ohmyzsh() {
-	if [ ! -d "$ZSH" ]; then
-		echo Installing Oh-My-Zsh...
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" > /dev/null
-	else
-		echo Skipping Oh-My-Zsh...
-	fi
+	echo Installing Oh-My-Zsh...
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" > /dev/null
 }
 
 install_powerline_fonts() {
