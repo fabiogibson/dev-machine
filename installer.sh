@@ -151,7 +151,7 @@ apt_install 				\
 	zsh
 
 
-sudo chsh -s `which zsh`
+sudo chsh --shell `which zsh`
 
 # install_pyenv
 # create_virtual_env 3.6.1 py3
