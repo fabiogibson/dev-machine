@@ -149,31 +149,7 @@ apt_install 				\
 	git				\
 	curl                            \
 	zsh
-: <<'END'
-	build-essential 		\
-	python-dev			\
-	python3-dev                     \
-	libffi-dev                      \
-	python-setuptools		\
-        python-software-properties	\
-	openssl 			\
-	libssl-dev			\
-	libpq-dev			\
-	libreadline-gplv2-dev           \
-	libsqlite3-dev                  \
-	bzip2                           \
-	tk-dev                          \
-	libgdbm-dev                     \
-	libc6-dev                       \
-	libbz2-dev                      \
-	tmux 				\
-	silversearcher-ag 		\
-	autojump 			\
-	conky-all 			\
-	synapse 			\
-	vim 				\
-	meld				
-END
+
 
 sudo chsh -s `which zsh`
 
