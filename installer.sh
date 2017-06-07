@@ -184,7 +184,6 @@ pip_install py2 rename fabric thefuck tox
 # set global python environments
 pyenv global 3.6.1 2.7.13 py3 py2
 
-install_ohmyzsh
 install_powerline_fonts
 install_docker
 install_skype
@@ -201,14 +200,11 @@ if ! cmd_exists tsc; then
 	npm_install typescript
 fi
 
-install_dotfiles
 configure_git
-
 # create workspace directories
 mkdir -p $HOME/.virtualenvs $HOME/Projects
 
-# set zsh as default shell
-echo Changing default shell to ZSH. Root password will be requested...
-chsh -s `which zsh`
+install_ohmyzsh
+install_dotfiles
 
 echo It\'s all done!
