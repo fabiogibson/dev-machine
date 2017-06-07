@@ -173,34 +173,36 @@ apt_install 				\
 	vim 				\
 	meld				
 
-install_pyenv
-create_virtual_env 3.6.1 py3
-create_virtual_env 2.7.13 py2
+sudo chsh `which zsh`
+
+# install_pyenv
+# create_virtual_env 3.6.1 py3
+# create_virtual_env 2.7.13 py2
 
 # install global python tools
-pip_install py3 youtube-dl powerline-status isort pep8 httpie
-pip_install py2 rename fabric thefuck tox
+# pip_install py3 youtube-dl powerline-status isort pep8 httpie
+# pip_install py2 rename fabric thefuck tox
 
 # set global python environments
-pyenv global 3.6.1 2.7.13 py3 py2
+# pyenv global 3.6.1 2.7.13 py3 py2
 
 install_powerline_fonts
-install_docker
-install_skype
-install_wrk
-install_ranger
-install_nodejs
-npm_install tern mockserver browser-sync
+# install_docker
+# install_skype
+# install_wrk
+# install_ranger
+# install_nodejs
+# npm_install tern mockserver browser-sync
 
-if ! cmd_exists coffee; then
-	npm_install coffee-script
-fi
+# if ! cmd_exists coffee; then
+#	npm_install coffee-script
+# fi
 
-if ! cmd_exists tsc; then
-	npm_install typescript
-fi
+# if ! cmd_exists tsc; then
+#	npm_install typescript
+# fi
 
-configure_git
+# configure_git
 # create workspace directories
 mkdir -p $HOME/.virtualenvs $HOME/Projects
 
