@@ -50,7 +50,12 @@ install_ohmyzsh() {
 install_powerline_fonts() {
 	if [ ! -f "$HOME/.local/share/fonts/Meslo LG L DZ Regular for Powerline.ttf" ]; then
 		echo Installing Powerline fonts...
-		git clone https://github.com/powerline/fonts.git ./fonts/ 2>&1
+		
+		git clone --depth=1 https://github.com/powerline/fonts.git ./fonts/ || {
+			printf "Error: git clone of powerline fonts failed\n"
+			exit 1
+		}
+			
 		./fonts/install.sh "Meslo LG L DZ Regular for Powerline" 2>&1
 		rm -rf ./fonts
 	else
@@ -72,7 +77,7 @@ install_dotfiles() {
 
 install_ranger() {
 	if ! cmd_exists ranger; then
-		sudo git clone git://git.savannah.nongnu.org/ranger.git /opt/ranger 2>&1
+		sudo git clone git://git.savannah.nongnu.org/ranger.git /opt/ranger
 		sudo ln -s /opt/ranger/ranger.py /usr/local/bin/ranger
 	fi
 }
@@ -91,11 +96,17 @@ install_nodejs() {
 	fi
 }
 
-install_skype() {
+install_skype_ppa() {
 	if ! cmd_exists skypeforlinux; then
 		curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
 		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
-		apt_install skypeforlinux
+	fi
+}
+
+install_googlechrome_ppa() {
+	if ! cmd_exists google-chrome; then
+		curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+		echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
 	fi
 }
 
@@ -150,6 +161,8 @@ configure_git() {
 	git config --global diff.external meld_git	
 }
 
+install_googlechrome_ppa
+install_skype_ppa
 
 apt_install 				\
 	git				\
@@ -177,7 +190,9 @@ apt_install 				\
 	conky-all 			\
 	synapse 			\
 	vim 				\
-	meld				
+	meld				\
+	skypeforlinux			\
+	google-chrome-stable
 
 install_pyenv
 create_virtual_env 3.6.1 py3
@@ -217,4 +232,6 @@ install_dotfiles
 # switch shell to zsh
 chsh -s $(grep /zsh$ /etc/shells | tail -1)
 env zsh
+
 echo It\'s all done!
+exit 1
