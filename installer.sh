@@ -148,7 +148,7 @@ configure_git() {
 apt_install 				\
 	git				\
 	curl                            \
-	zsh 				\
+	zsh
 : <<'END'
 	build-essential 		\
 	python-dev			\
