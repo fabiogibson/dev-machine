@@ -1,6 +1,8 @@
 # dev-machine
 My ubuntu machine for python development.
 
+## It's not functional yet.
+
 Installation
 --------------------
 
