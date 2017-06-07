@@ -175,7 +175,7 @@ create_virtual_env 2.7.13 py2
 
 # install global python tools
 pip_install py3 youtube-dl powerline-status isort pep8 httpie
-pip_install py2 rename fabric thefuck
+pip_install py2 rename fabric thefuck tox
 
 # set global python environments
 pyenv global 3.6.1 2.7.13 py3 py2
