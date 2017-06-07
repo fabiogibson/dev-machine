@@ -156,9 +156,6 @@ apt_install 				\
 	curl                            \
 	zsh
 
-
-sudo chsh --shell `which zsh`
-
 # install_pyenv
 # create_virtual_env 3.6.1 py3
 # create_virtual_env 2.7.13 py2
@@ -193,10 +190,7 @@ mkdir -p $HOME/.virtualenvs $HOME/Projects
 install_ohmyzsh
 install_dotfiles
 
-TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
-	chsh -s $(grep /zsh$ /etc/shells | tail -1)
-fi
-
+# switch shell to zsh
+chsh -s $(grep /zsh$ /etc/shells | tail -1)
 env zsh
 echo It\'s all done!
