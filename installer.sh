@@ -148,6 +148,7 @@ configure_git() {
 apt_install 				\
 	git				\
 	curl                            \
+	zsh 				\
 : <<'END'
 	build-essential 		\
 	python-dev			\
@@ -165,7 +166,6 @@ apt_install 				\
 	libgdbm-dev                     \
 	libc6-dev                       \
 	libbz2-dev                      \
-	zsh 				\
 	tmux 				\
 	silversearcher-ag 		\
 	autojump 			\
