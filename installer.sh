@@ -18,7 +18,6 @@ cmd_exists() {
 	fi
 }
 
-
 install_pyenv() {
 	export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
@@ -37,9 +36,7 @@ install_pyenv() {
 
 	eval "$(pyenv init -)"
 }
-
 	
-
 install_ohmyzsh() {
 	echo Installing Oh-My-Zsh...
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" > /dev/null
