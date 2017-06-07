@@ -1,7 +1,6 @@
-# dev-machine
-My ubuntu machine for python development.
+## This script is not functional yet.
 
-## It's not functional yet.
+My ubuntu machine for python development.
 
 Installation
 --------------------
