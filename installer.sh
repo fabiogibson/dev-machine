@@ -58,6 +58,11 @@ install_dotfiles() {
 		echo Creating $HOME/.$file
 		curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1	
 	done
+	
+	if command -v xfce4-about  1>/dev/null; then
+		mkdir -p  $HOME/.config/xfce4/terminal
+		curl -s -o $HOME/.config/xfce4/terminal/terminalrc https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/terminalrc 2>&1
+	fi
 }
 
 install_ranger() {
