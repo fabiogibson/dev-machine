@@ -1,6 +1,6 @@
 ## This script is not functional yet.
 
-My ubuntu machine for python development.
+My manjaro machine for python development.
 
 Installation
 --------------------
@@ -15,20 +15,8 @@ Installation
 
 What will be installed
 ---------------------------
-
-**Libs**
-   * build-essential
-   * python-dev
-   * python3-dev
-   * python-setuptools
-   * python-software-properties
-   * pyenv
-   * openssl
-   * libffi-dev
-   * libssl-dev
-   * libpq-dev
    
-**Languages**
+**Languages/Frameworks**
    * Python 2.7.13
    * Python 3.6.1
    * NodeJs
@@ -62,6 +50,7 @@ What will be installed
    * synapse
    * meld
    * skype
+   * atom
 
 
    
