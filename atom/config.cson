@@ -22,7 +22,6 @@
   core:
     autoHideMenuBar: true
     disabledPackages: [
-      "go-debug"
       "background-tips"
       "language-c"
       "language-clojure"
