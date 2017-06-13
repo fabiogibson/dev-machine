@@ -1,0 +1,6 @@
+'atom-pane':
+  'ctrl-alt-w': 'tabs:close-all-tabs'
+'atom-workspace':
+  'ctrl-cmd-t': 'atom-python-test:run-all-tests'
+  'ctrl-cmd-c': 'atom-python-test:run-test-under-cursor'
+  'ctrl-cmd-h': 'atom-python-test:close-panel'
