@@ -62,6 +62,12 @@ install_dotfiles() {
 		mkdir -p  $HOME/.config/xfce4/terminal
 		curl -s -o $HOME/.config/xfce4/terminal/terminalrc https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/terminalrc 2>&1
 	fi
+	
+	for file in config.cson keymap.cson packages.txt; do
+		curl -s -o $HOME/.atom/$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/atom/$file 2>&1
+	done
+	
+	apm install --packages-file $HOME/.atom/packages.txt
 }
 
 install_ranger() {
@@ -137,10 +143,12 @@ pacman_install 				\
 	vim 				\
 	atom				\
 	apm				\
-	meld	
+	meld				\
+	noto-fonts
 
 yaourt -S google-chrome --noconfirm
 yaourt -S skypeforlinux-bin --noconfirm
+yaourt -S moka-icon-theme-git --noconfirm
 
 install_pyenv
 create_virtual_env 3.6.1 py3
