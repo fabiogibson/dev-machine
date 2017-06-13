@@ -12,10 +12,7 @@ cmd_exists() {
 
 install_pyenv() {
 	export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-	if [ -z "$PYENV_ROOT" ]; then
-	  export PYENV_ROOT="${HOME}/.pyenv"
-	fi 
+	export PYENV_ROOT="${HOME}/.pyenv"
 
 	if [ ! -d "$PYENV_ROOT" ]; then
 		echo Installing PyEnv...
