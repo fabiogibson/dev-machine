@@ -4,6 +4,7 @@ pacman_install() {
 		printf Installing $pack\n
 		sudo pacman -S --noconfirm $pack  || {
 			printf "Error: Package installation failed for $pack\n"
+			exit 1
 		}
 	done
 }
