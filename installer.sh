@@ -1,21 +1,13 @@
 #!/bin/sh
 apt_install() {
-	sudo apt-get update -y > /dev/null
-
 	for pack in "$@"; do	
-		echo Installing $pack
-		sudo apt-get install -y $pack > /dev/null
+		printf Installing $pack\n
+		sudo pacman -S --noconfirm $pack > /dev/null
 	done
 }
 
 cmd_exists() {
-	if command -v $1  1>/dev/null; then
-		echo Skipping $1...
-		return 0
-	else
-		echo Installing $1...
-		return 1
-	fi
+	command -v "$@" > /dev/null 2>&1
 }
 
 install_pyenv() {
@@ -82,33 +74,26 @@ install_ranger() {
 	fi
 }
 
-install_docker() {
-	if ! cmd_exists docker; then
-		curl -sSL https://get.docker.com/ | sh
-		sudo usermod -a -G docker `whoami`
-	fi
-}
+#install_nodejs() {
+#	if ! cmd_exists node; then
+#		curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+#		apt_install nodejs
+#	fi
+#}
 
-install_nodejs() {
-	if ! cmd_exists node; then
-		curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-		apt_install nodejs
-	fi
-}
+#install_skype_ppa() {
+#	if ! cmd_exists skypeforlinux; then
+#		curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
+#		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
+#	fi
+#}
 
-install_skype_ppa() {
-	if ! cmd_exists skypeforlinux; then
-		curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
-		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
-	fi
-}
-
-install_googlechrome_ppa() {
-	if ! cmd_exists google-chrome; then
-		curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-		echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
-	fi
-}
+#install_googlechrome_ppa() {
+#	if ! cmd_exists google-chrome; then
+#		curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+#		echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
+#	fi
+#}
 
 install_wrk() {
 	if ! cmd_exists wrk; then
@@ -121,9 +106,7 @@ install_wrk() {
 
 npm_install() {
 	for pack in "$@"; do
-		if ! cmd_exists $pack; then
-		        sudo npm install -g $pack > /dev/null
-		fi
+		sudo npm install -g $pack > /dev/null
 	done
 }
 
@@ -161,39 +144,48 @@ configure_git() {
 	git config --global diff.external meld_git	
 }
 
-apt_install curl
+# apt_install curl
 
-install_googlechrome_ppa
-install_skype_ppa
+#install_googlechrome_ppa
+#install_skype_ppa
 
 apt_install 				\
 	git				\
 	zsh				\
-	build-essential 		\
-	python-dev			\
-	python3-dev                     \
-	libffi-dev                      \
-	python-setuptools		\
-	python-software-properties	\
-	openssl 			\
-	libssl-dev			\
-	libpq-dev			\
-	libreadline-gplv2-dev           \
-	libsqlite3-dev                  \
-	bzip2                           \
-	tk-dev                          \
-	libgdbm-dev                     \
-	libc6-dev                       \
-	libbz2-dev                      \
+	yaourt				\
+	#build-essential 		\
+	#python-dev			\
+	#python3-dev                    \
+	#libffi-dev                     \
+	#python-setuptools		\
+	#python-software-properties	\
+	#openssl 			\
+	#libssl-dev			\
+	#libpq-dev			\
+	#libreadline-gplv2-dev          \
+	#libsqlite3-dev                 \
+	#bzip2                          \
+	#tk-dev                         \
+	#libgdbm-dev                    \
+	#libc6-dev                      \
+	#libbz2-dev                     \
 	tmux 				\
-	silversearcher-ag 		\
+	docker				\
+	the_silver_searcher 		\
+	#silversearcher-ag 		\
 	autojump 			\
-	conky-all 			\
+	#conky-all 			\
+	conky				\
 	synapse 			\
+	nodejs				\
+	npm				\
 	vim 				\
-	meld				\
-	skypeforlinux			\
-	google-chrome-stable
+	atom				\
+	apm				\
+	meld	
+
+yaourt -S google-chrome --noconfirm
+yaourt -S skypeforlinux-bin --noconfirm
 
 install_pyenv
 create_virtual_env 3.6.1 py3
@@ -207,20 +199,11 @@ pip_install py2 rename fabric thefuck tox
 pyenv global 3.6.1 2.7.13 py3 py2
 
 install_powerline_fonts
-install_docker
-install_skype
+
 install_wrk
 install_ranger
-install_nodejs
-npm_install tern mockserver browser-sync
 
-if ! cmd_exists coffee; then
-	npm_install coffee-script
-fi
-
-if ! cmd_exists tsc; then
-	npm_install typescript
-fi
+npm_install tern mockserver browser-sync coffee-script typescript
 
 configure_git
 
