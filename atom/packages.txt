@@ -5,21 +5,11 @@ atom-jinja2
 atom-material-ui
 atom-python-package
 atom-python-test
-autocomplete-go
 autocomplete-python
-builder-go
 busy-signal
 coffee-autocompile
 file-icons
 git-control
-go-config
-go-debug
-go-get
-go-plus
-godoc
-gofmt
-gometalinter-linter
-gorename
 intentions
 language-babel
 language-django
@@ -30,7 +20,6 @@ linter
 linter-pylint
 linter-ui-default
 markdown-preview-plus
-navigator-go
 oceanic-next
 python-isort
 python-snippets
@@ -38,4 +27,3 @@ python-tools
 react-es6-snippets
 scratch
 tabs-to-spaces
-tester-go
