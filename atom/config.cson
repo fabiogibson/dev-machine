@@ -1,0 +1,67 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#2196f3"
+      predefinedColor: "Blue"
+    fonts: {}
+    tabs:
+      compactTabs: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  "atom-python-test":
+    outputColored: true
+  autosave:
+    enabled: true
+  "coffee-autocompile":
+    compileIfNoOutSpecified: true
+  "coffee-compile": {}
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "go-debug"
+      "background-tips"
+      "language-c"
+      "language-clojure"
+      "language-csharp"
+      "language-java"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-toml"
+      "metrics"
+      "spell-check"
+      "welcome"
+      "linter-pylint"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "atom-material-ui"
+      "oceanic-next"
+    ]
+  editor:
+    fontFamily: "Fira Code"
+    tabLength: 4
+    tabType: "soft"
+  "git-control":
+    showGitFlowButton: false
+  "go-plus":
+    currentPanelHeight: "12.891006842619745vh"
+  "linter-pylint":
+    rcFile: "/home/fgibson/.pylintrc"
+  "linter-ui-default":
+    panelHeight: 180
+  "python-isort":
+    sortOnSave: true
+  "tree-view":
+    alwaysOpenExisting: true
+    autoReveal: true
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+    showOnRightSide: true
+  welcome:
+    showOnStartup: false
