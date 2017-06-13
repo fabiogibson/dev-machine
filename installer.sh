@@ -1,8 +1,8 @@
 #!/bin/sh
-apt_install() {
+pacman_install() {
 	for pack in "$@"; do	
 		printf Installing $pack\n
-		sudo pacman -S --noconfirm $pack > /dev/null
+		sudo pacman -S --noconfirm $pack
 	done
 }
 
@@ -74,26 +74,7 @@ install_ranger() {
 	fi
 }
 
-#install_nodejs() {
-#	if ! cmd_exists node; then
-#		curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-#		apt_install nodejs
-#	fi
-#}
 
-#install_skype_ppa() {
-#	if ! cmd_exists skypeforlinux; then
-#		curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
-#		echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
-#	fi
-#}
-
-#install_googlechrome_ppa() {
-#	if ! cmd_exists google-chrome; then
-#		curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-#		echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
-#	fi
-#}
 
 install_wrk() {
 	if ! cmd_exists wrk; then
@@ -144,37 +125,14 @@ configure_git() {
 	git config --global diff.external meld_git	
 }
 
-# apt_install curl
-
-#install_googlechrome_ppa
-#install_skype_ppa
-
-apt_install 				\
+pacman_install 				\
 	git				\
 	zsh				\
 	yaourt				\
-	#build-essential 		\
-	#python-dev			\
-	#python3-dev                    \
-	#libffi-dev                     \
-	#python-setuptools		\
-	#python-software-properties	\
-	#openssl 			\
-	#libssl-dev			\
-	#libpq-dev			\
-	#libreadline-gplv2-dev          \
-	#libsqlite3-dev                 \
-	#bzip2                          \
-	#tk-dev                         \
-	#libgdbm-dev                    \
-	#libc6-dev                      \
-	#libbz2-dev                     \
 	tmux 				\
 	docker				\
 	the_silver_searcher 		\
-	#silversearcher-ag 		\
 	autojump 			\
-	#conky-all 			\
 	conky				\
 	synapse 			\
 	nodejs				\
