@@ -2,7 +2,9 @@
 pacman_install() {
 	for pack in "$@"; do	
 		printf Installing $pack\n
-		sudo pacman -S --noconfirm $pack
+		sudo pacman -S --noconfirm $pack  || {
+			printf "Error: Package installation failed for $pack\n"
+		}
 	done
 }
 
