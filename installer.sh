@@ -64,7 +64,7 @@ install_dotfiles() {
 	fi
 	
 	for file in config.cson keymap.cson packages.txt; do
-		curl -s -o $HOME/.atom/$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/atom/$file 2>&1
+		curl -s -o $HOME/.atom/$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/atom/$file 2>&1
 	done
 	
 	apm install --packages-file $HOME/.atom/packages.txt
