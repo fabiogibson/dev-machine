@@ -148,7 +148,7 @@ pacman_install 				\
 	atom				\
 	apm				\
 	meld				\
-	tint2				\
+	plank				\
 	noto-fonts
 
 yaourt -S google-chrome --noconfirm
