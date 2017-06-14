@@ -135,6 +135,7 @@ pacman_install 				\
 	git				\
 	zsh				\
 	yaourt				\
+	yaourt-gui-manjaro		\
 	tmux 				\
 	docker				\
 	the_silver_searcher 		\
@@ -147,6 +148,7 @@ pacman_install 				\
 	atom				\
 	apm				\
 	meld				\
+	tint2				\
 	noto-fonts
 
 yaourt -S google-chrome --noconfirm
