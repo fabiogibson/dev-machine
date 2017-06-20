@@ -9,6 +9,16 @@ pacman_install() {
 	done
 }
 
+yaourt_install() {
+	for pack in "$@"; do	
+		printf Installing $pack\n
+		sudo yaourt -S --noconfirm $pack  || {
+			printf "Error: Package installation failed for $pack\n"
+			exit 1
+		}
+	done
+}
+
 cmd_exists() {
 	command -v "$@" > /dev/null 2>&1
 }
@@ -56,7 +66,7 @@ install_powerline_fonts() {
 }
 
 install_dotfiles() {
-	for file in zshrc zshenv conkyrc tmux.conf; do
+	for file in zshrc zshenv tmux.conf; do
 		echo Creating $HOME/.$file
 		curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1	
 	done
@@ -136,6 +146,7 @@ pacman_install 				\
 	zsh				\
 	yaourt				\
 	yaourt-gui-manjaro		\
+	spacefm				\
 	tmux 				\
 	docker				\
 	the_silver_searcher 		\
@@ -148,12 +159,12 @@ pacman_install 				\
 	atom				\
 	apm				\
 	meld				\
-	plank				\
 	noto-fonts
 
-yaourt -S google-chrome --noconfirm
-yaourt -S skypeforlinux-bin --noconfirm
-yaourt -S moka-icon-theme-git --noconfirm
+yaourt_install 			\
+	google-chrome 		\
+	skypeforlinux-bin 	\
+	moka-icon-theme-git
 
 install_pyenv
 create_virtual_env 3.6.1 py3
