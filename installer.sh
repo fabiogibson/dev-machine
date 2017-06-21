@@ -15,10 +15,14 @@ git_clone() {
 }
 
 get_dotfiles() {
-	mkdir -p $1
-	for file in $2; do
-		curl -s -o $1/$2 https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$2 2>&1	
-	done
+	targetdir=$1
+        mkdir -p $targetdir
+        shift
+        for file in $@; do
+                printf "Downloading $file to $targetdir...\n"
+                curl -s -o $targetdir/$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1
+        done
+
 }
 
 safe_install() {
