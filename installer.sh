@@ -22,7 +22,7 @@ get_dotfiles() {
 }
 
 safe_install() {
-	install_cmd = $1
+	install_cmd=$1
 	shift
 	
 	for pack in "$@"; do
