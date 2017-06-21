@@ -91,17 +91,17 @@ install_dotfiles() {
 
 install_wrk() {
 	if ! cmd_exists wrk; then
-		git_clone https://github.com/wg/wrk.git ./tmp/wrk
-		cd ./tmp/wrk
+		git_clone https://github.com/wg/wrk.git $tmpdir/wrk
+		cd $tmpdir/wrk
 		make
 		sudo cp wrk /usr/local/bin
-		cd ~
+		cd $HOME
 	fi
 }
 
 install_aureola() {
-	git_clone https://github.com/erikdubois/Aureola ./tmp/aureola/ 
-	./tmp/aureola/install-conky.sh -y
+	git_clone https://github.com/erikdubois/Aureola $tmpdir/aureola
+	$tmpdir/aureola/install-conky.sh -y
 	get_dotfiles $HOME/.config/conky conky.conf
 }
 
@@ -110,15 +110,15 @@ install_aureola() {
 ##################################################
 install_powerline_fonts() {
 	if [ ! -f "$HOME/.local/share/fonts/Meslo LG L DZ Regular for Powerline.ttf" ]; then
-		git_clone https://github.com/powerline/fonts.git ./tmp/powerline_fonts/
-		./tmp/powerline_fonts/install.sh "Meslo LG L DZ Regular for Powerline"
+		git_clone https://github.com/powerline/fonts.git $tmpdir/powerline_fonts/
+		$tmpdir/powerline_fonts/install.sh "Meslo LG L DZ Regular for Powerline"
 	fi
 }
 
 install_firacode() {
 	if [ ! -f "$HOME/.local/share/fonts/FiraCode-Regular.ttf" ]; then
-		git_clone https://github.com/tonsky/FiraCode.git ./tmp/firacode/
-		cp ./tmp/firacode/distr/ttf/* $HOME/.local/share/fonts/
+		git_clone https://github.com/tonsky/FiraCode.git $tmpdir/firacode/
+		cp $tmpdir/firacode/distr/ttf/* $HOME/.local/share/fonts/
 	fi
 }
 
@@ -148,7 +148,9 @@ configure_git() {
 ##################################################
 # Machine setup goes here
 ##################################################
-mkdir -p ~/tmp/
+tmpdir=$HOME/tmp
+mkdir -p $tmpdir
+
 pacman_install 	git
 
 # Setup python enviroments
