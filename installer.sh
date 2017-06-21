@@ -134,8 +134,8 @@ configure_git() {
 	echo Setting up git globals...
 	# use this hack to be able to invoke git diff instead of git difftool
 	/bin/cat <<EOM >/usr/local/bin/meld_git
-	#!/bin/sh
-	meld $2 $5
+#!/bin/sh
+meld $2 $5
 	EOM
 
 	sudo chmod +x /usr/local/bin/meld_git
