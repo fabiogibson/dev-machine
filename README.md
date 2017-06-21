@@ -1,6 +1,6 @@
 ## This script is not functional yet.
 
-My manjaro machine for python development.
+My development machine.
 
 Installation
 --------------------
