@@ -43,7 +43,7 @@ pacman_install() {
 }
 
 yaourt_install() {
-	safe_install "sudo yaourt -S --noconfirm" $@
+	safe_install "yaourt -S --noconfirm" $@
 }
 
 npm_install() {
