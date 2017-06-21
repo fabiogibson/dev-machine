@@ -156,8 +156,6 @@ pacman_install 				\
 	nodejs				\
 	npm				\
 	vim 				\
-	atom				\
-	apm				\
 	meld				\
 	noto-fonts
 
