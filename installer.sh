@@ -78,15 +78,27 @@ install_ohmyzsh() {
 	git_clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 }
 
-install_dotfiles() {
-	for file in zshrc zshenv tmux.conf; do
-		echo Creating $HOME/.$file
-		curl -s -o $HOME/.$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1	
+get_dotfiles() {
+	mkdir -p $1
+	for file in $2; do
+		curl -s -o $1/$2 https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$2 2>&1	
 	done
+}
+
+install_dotfiles() {
+	get_dotfiles $HOME .zshrc .zshenv .tmux.conf
+	get_dotfiles $HOME/.config/xfce4/terminal terminalrc
 	
 	if cmd_exists xfce4-about; then
 		mkdir -p  $HOME/.config/xfce4/terminal
 		curl -s -o $HOME/.config/xfce4/terminal/terminalrc https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/terminalrc 2>&1
+		
+		
+		get_dotfile xfce4-panel.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
+		get_dotfile xfce4-keyboard-shortcuts.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
+		
+		curl -s -o $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/xfce4-panel.xml 2>&1
+		curl -s -o $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/xfce4-keyboard-shortcuts.xml 2>&1
 	fi
 }
 
