@@ -133,13 +133,8 @@ create_virtual_env() {
 configure_git() {
 	echo Setting up git globals...
 	# use this hack to be able to invoke git diff instead of git difftool
-	/bin/cat <<EOM >/usr/local/bin/meld_git
-#!/bin/sh
-meld $2 $5
-	EOM
-
+	printf "#!/bin/sh\nmeld $2 $5" >> /usr/local/bin/meld_git
 	sudo chmod +x /usr/local/bin/meld_git
-
 	git config --global user.name "Fabio Gibson"
 	git config --global user.email "fabiogibson@hotmail.com"
 	git config --global merge.tool meld_git
