@@ -14,43 +14,46 @@ git_clone() {
   	}
 }
 
+get_dotfiles() {
+	mkdir -p $1
+	for file in $2; do
+		curl -s -o $1/$2 https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$2 2>&1	
+	done
+}
+
+safe_install() {
+	install_cmd = $1
+	shift
+	
+	for pack in "$@"; do
+		printf "Installing package $pack\n"
+		
+		eval "$install_cmd $pack" || {
+			printf "Error: Package $pack installation failed.\n"
+			exit 1
+		}
+	done
+}
+
 ##################################################
 # Package Managers
 ##################################################
 pacman_install() {
-	for pack in "$@"; do	
-		printf Installing $pack\n
-		sudo pacman -S --noconfirm $pack  || {
-			printf "Error: Package installation failed for $pack\n"
-			exit 1
-		}
-	done
+	safe_install "sudo pacman -S --noconfirm" $@
 }
 
 yaourt_install() {
-	for pack in "$@"; do	
-		printf Installing $pack\n
-		sudo yaourt -S --noconfirm $pack  || {
-			printf "Error: Package installation failed for $pack\n"
-			exit 1
-		}
-	done
+	safe_install "sudo yaourt -S --noconfirm" $@
 }
 
 npm_install() {
-	for pack in "$@"; do
-		sudo npm install -g $pack > /dev/null
-	done
+	safe_install "sudo npm install -g" $@
 }
 
 pip_install() {
 	pyenv activate $1
 	shift
-	for pack in "$@"; do
-		if ! cmd_exists $pack; then
-	  		pip install $pack > /dev/null
-		fi
-	done
+	safe_install "pip install" $@
 	pyenv deactivate
 }
 
@@ -62,12 +65,10 @@ install_pyenv() {
 	export PYENV_ROOT="${HOME}/.pyenv"
 
 	if [ ! -d "$PYENV_ROOT" ]; then
-		echo Installing PyEnv...
 		export PATH="${PYENV_ROOT}/bin:$PATH"
-		(curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash) > /dev/null
+		echo Installing PyEnv...
+		(curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash) 2>&1
 		git_clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ${PYENV_ROOT}/plugins/pyenv-virtualenvwrapper
-	else
-		echo Skipping PyEnv
 	fi
 
 	eval "$(pyenv init -)"
@@ -78,28 +79,10 @@ install_ohmyzsh() {
 	git_clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 }
 
-get_dotfiles() {
-	mkdir -p $1
-	for file in $2; do
-		curl -s -o $1/$2 https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$2 2>&1	
-	done
-}
-
 install_dotfiles() {
 	get_dotfiles $HOME .zshrc .zshenv .tmux.conf
 	get_dotfiles $HOME/.config/xfce4/terminal terminalrc
-	
-	if cmd_exists xfce4-about; then
-		mkdir -p  $HOME/.config/xfce4/terminal
-		curl -s -o $HOME/.config/xfce4/terminal/terminalrc https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/terminalrc 2>&1
-		
-		
-		get_dotfile xfce4-panel.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
-		get_dotfile xfce4-keyboard-shortcuts.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
-		
-		curl -s -o $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/xfce4-panel.xml 2>&1
-		curl -s -o $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/xfce4-keyboard-shortcuts.xml 2>&1
-	fi
+	get_dotfiles $HOME/.config/xfce4/xfconf/xfce-perchannel-xml xfce4-panel.xml xfce4-keyboard-shortcuts.xml
 }
 
 install_wrk() {
@@ -108,13 +91,14 @@ install_wrk() {
 		cd ./tmp/wrk
 		make
 		sudo cp wrk /usr/local/bin
+		cd ~
 	fi
 }
 
 install_aureola() {
-	git_clone https://github.com/erikdubois/Aureola ./tmp/Aureola/ 
-	./tmp/Aureola/install-conky.sh -y
-	curl -s -o $HOME/.config/conky/conky.conf https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/conky.conf 2>&1	
+	git_clone https://github.com/erikdubois/Aureola ./tmp/aureola/ 
+	./tmp/aureola/install-conky.sh -y
+	get_dotfiles $HOME/.config/conky conky.conf
 }
 
 ##################################################
@@ -143,15 +127,12 @@ create_virtual_env() {
 	if [ ! -d "$PYENV_ROOT/versions/$2" ]; then
 		echo Creating virtualenv $2 with Python $1
 		pyenv virtualenv $1 $2
-	else
-		echo Skipping virtualenv $2
 	fi
 }
 
 configure_git() {
 	echo Setting up git globals...
 	# use this hack to be able to invoke git diff instead of git difftool
-	echo '#!/bin/sh\nmeld $2 $5' | sudo tee /usr/local/bin/meld_git > /dev/null
 	/bin/cat <<EOM >/usr/local/bin/meld_git
 	#!/bin/sh
 	meld $2 $5
