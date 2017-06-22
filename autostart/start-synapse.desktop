@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec=synapse
+Icon=synapse
+X-GNOME-Autostart-enabled=true
+X-MATE-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name=Synapse
+Comment=Application Launcher
+X-GNOME-Autostart-Delay=0
