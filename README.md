@@ -55,12 +55,12 @@ What will be installed
    * Noto
    
 **X Tools**
-   * conky
-   * synapse
-   * meld
-   * tint2
-   * sublime text 3
-   * pgadmin 4
+   * Conky
+   * Synapse
+   * Meld
+   * Tint 2
+   * Sublime Text 3
+   * pgAdmin 4
 
 **Xfce Themes**
    * Moka icons
