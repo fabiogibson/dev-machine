@@ -186,6 +186,7 @@ yaourt_install 				\
 	google-chrome 			\
 	skypeforlinux-bin 		\
 	enpass-bin			\
+	zukitwo-themes-git		\
 	moka-icon-theme-git
 
 # install fonts
