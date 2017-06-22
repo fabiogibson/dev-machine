@@ -179,7 +179,7 @@ launcher_item_app = /usr/share/applications/skypeforlinux.desktop
 launcher_item_app = /usr/share/applications/xfce4-notes.desktop
 launcher_item_app = /usr/share/applications/xfce4-screenshooter.desktop
 launcher_item_app = /usr/share/applications/xfcalendar.desktop
-launcher_item_app = /usr/share/applications/sublime_text.desktop
+launcher_item_app = /usr/share/applications/sublime_text_3.desktop
 launcher_item_app = /usr/share/applications/enpass.desktop
 
 #-------------------------------------
