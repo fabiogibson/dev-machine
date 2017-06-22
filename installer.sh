@@ -16,8 +16,8 @@ git_clone() {
 }
 
 copy_dotfiles() {
-        mkdir -p $2
-      	cp -a $tmpdir/dev-machine/dotfiles/$1/. $2
+        mkdir -p $1
+      	cp -a $tmpdir/dev-machine/dotfiles/$2/. $1
 }
 
 safe_install() {	
