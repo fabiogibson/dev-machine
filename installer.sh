@@ -177,6 +177,8 @@ pacman_install 				\
 	vim 				\
 	meld				\
 	tint2				\
+	dropbox				\
+	pgadmin4			\
 	noto-fonts
 
 yaourt_install 				\
