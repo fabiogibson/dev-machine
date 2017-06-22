@@ -4,39 +4,35 @@
 # Helpers
 ##################################################
 cmd_exists() {
-	command -v "$@" > /dev/null 2>&1
+	command -v $1 > /dev/null 2>&1
 }
 
 git_clone() {
+	umask g-w,o-w
 	env git clone --depth=1 $1 $2 || {
   		printf "Error: git clone of $1 failed\n"
   		exit 1
   	}
 }
 
-get_dotfiles() {
-	targetdir=$1
-        mkdir -p $targetdir
-        shift
-        for file in $@; do
-                printf "Downloading $file to $targetdir...\n"
-                curl -s -o $targetdir/$file https://raw.githubusercontent.com/fabiogibson/dev-machine/master/dotfiles/$file 2>&1
-        done
-
+copy_dotfiles() {
+        mkdir -p $2
+      	cp -a $tmpdir/dev-machine/dotfiles/$1/. $2
 }
 
-safe_install() {
-	install_cmd=$1
-	shift
-	
-	for pack in "$@"; do
+safe_install() {	
+	for pack in ${@:2}; do
 		printf "Installing package $pack\n"
 		
-		eval "$install_cmd $pack" || {
+		eval "$1 $pack" || {
 			printf "Error: Package $pack installation failed.\n"
 			exit 1
 		}
 	done
+}
+
+remote_bash() {
+	(curl -L $1 | bash) 2>&1
 }
 
 ##################################################
@@ -56,8 +52,7 @@ npm_install() {
 
 pip_install() {
 	pyenv activate $1
-	shift
-	safe_install "pip install" $@
+	safe_install "pip install" ${@:2}
 	pyenv deactivate
 }
 
@@ -70,8 +65,8 @@ install_pyenv() {
 
 	if [ ! -d "$PYENV_ROOT" ]; then
 		export PATH="${PYENV_ROOT}/bin:$PATH"
-		echo Installing PyEnv...
-		(curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash) 2>&1
+		printf "Installing PyEnv..."
+		remote_bash https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer
 		git_clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ${PYENV_ROOT}/plugins/pyenv-virtualenvwrapper
 	fi
 
@@ -79,30 +74,20 @@ install_pyenv() {
 }
 	
 install_ohmyzsh() {
-	umask g-w,o-w
 	git_clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-}
-
-install_dotfiles() {
-	get_dotfiles $HOME .zshrc .zshenv .tmux.conf
-	get_dotfiles $HOME/.config/xfce4/terminal terminalrc
-	get_dotfiles $HOME/.config/xfce4/xfconf/xfce-perchannel-xml xfce4-panel.xml xfce4-keyboard-shortcuts.xml
 }
 
 install_wrk() {
 	if ! cmd_exists wrk; then
 		git_clone https://github.com/wg/wrk.git $tmpdir/wrk
-		cd $tmpdir/wrk
-		make
-		sudo cp wrk /usr/local/bin
-		cd $HOME
+		make -C $tmpdir/wrk
+		sudo cp $tmpdir/wrk/wrk /usr/local/bin
 	fi
 }
 
 install_aureola() {
 	git_clone https://github.com/erikdubois/Aureola $tmpdir/aureola
-	$tmpdir/aureola/spark/install-conky.sh -y
-	get_dotfiles $HOME/.config/conky conky.conf
+	$tmpdir/aureola/spark/install-conky.sh
 }
 
 ##################################################
@@ -110,14 +95,14 @@ install_aureola() {
 ##################################################
 install_powerline_fonts() {
 	if [ ! -f "$HOME/.local/share/fonts/Meslo LG L DZ Regular for Powerline.ttf" ]; then
-		git_clone https://github.com/powerline/fonts.git $tmpdir/powerline_fonts/
+		git_clone https://github.com/powerline/fonts.git $tmpdir/powerline_fonts
 		$tmpdir/powerline_fonts/install.sh "Meslo LG L DZ Regular for Powerline"
 	fi
 }
 
 install_firacode() {
 	if [ ! -f "$HOME/.local/share/fonts/FiraCode-Regular.ttf" ]; then
-		git_clone https://github.com/tonsky/FiraCode.git $tmpdir/firacode/
+		git_clone https://github.com/tonsky/FiraCode.git $tmpdir/firacode
 		cp $tmpdir/firacode/distr/ttf/* $HOME/.local/share/fonts/
 	fi
 }
@@ -132,6 +117,16 @@ create_virtual_env() {
 		echo Creating virtualenv $2 with Python $1
 		pyenv virtualenv $1 $2
 	fi
+}
+
+install_dotfiles() {
+	copy_dotfiles $HOME zsh
+	copy_dotfiles $HOME tmux
+	copy_dotfiles $HOME/.config/xfce4/terminal terminal
+	copy_dotfiles $HOME/.config/xfce4/xfconf/xfce-perchannel-xml xfce4
+	copy_dotfiles $HOME/.config/autostart autostart
+	copy_dotfiles $HOME/.config/conky conky
+	copy_dotfiles $HOME/.config/tint2 tint2
 }
 
 configure_git() {
@@ -150,8 +145,7 @@ configure_git() {
 ##################################################
 tmpdir=$HOME/tmp
 mkdir -p $tmpdir
-
-pacman_install 	git
+git_clone https://github.com/fabiogibson/dev-machine.git $tmpdir/dev-machine
 
 # Setup python enviroments
 install_pyenv
