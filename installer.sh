@@ -180,6 +180,7 @@ pacman_install 				\
 	npm				\
 	vim 				\
 	meld				\
+	tint2				\
 	noto-fonts
 
 yaourt_install 			\
