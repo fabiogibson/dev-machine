@@ -22,21 +22,17 @@ What will be installed
    * NodeJs
    * Coffe-script
    * Type-script
+   * Go
    
 **Command-line Tools**
-   * git
-   * silversearcher-ag
-   * autojump
+   * vim
    * docker
    * wrk
-   * ranger
-   * vim
+   * silversearcher-ag
+   * autojump 
    * zsh
    * tmux
-   * oh-my-zsh with patched fonts
-   * rename
-   * youtube-dl
-   * fabric
+   * oh-my-zsh
    * powerline 
    * isort 
    * pep8 
@@ -49,8 +45,4 @@ What will be installed
    * conky
    * synapse
    * meld
-   * skype
-   * atom
-
-
-   
+   * tint2
