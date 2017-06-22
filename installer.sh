@@ -169,6 +169,7 @@ pacman_install 				\
 	docker				\
 	the_silver_searcher 		\
 	autojump 			\
+	xclip				\
 	conky				\
 	synapse 			\
 	nodejs				\
