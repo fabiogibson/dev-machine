@@ -174,7 +174,6 @@ launcher_tooltip = 1
 launcher_item_app = /usr/share/applications/xfce-backdrop-settings.desktop
 launcher_item_app = /usr/share/applications/spacefm.desktop
 launcher_item_app = /usr/share/applications/exo-terminal-emulator.desktop
-launcher_item_app = /usr/share/applications/opera.desktop
 launcher_item_app = /usr/share/applications/pidgin.desktop
 launcher_item_app = /usr/share/applications/skypeforlinux.desktop
 launcher_item_app = /usr/share/applications/xfce4-notes.desktop
