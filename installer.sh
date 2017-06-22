@@ -179,10 +179,11 @@ pacman_install 				\
 	noto-fonts
 
 yaourt_install 				\
+	sublime-text-dev		\
 	google-chrome 			\
-	numix-square-icon-theme-git
-	#skypeforlinux-bin 	\
-	#moka-icon-theme-git
+	skypeforlinux-bin 		\
+	enpass-bin			\
+	moka-icon-theme-git
 
 # install fonts
 install_powerline_fonts
