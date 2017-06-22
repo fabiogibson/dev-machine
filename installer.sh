@@ -177,10 +177,11 @@ pacman_install 				\
 	tint2				\
 	noto-fonts
 
-yaourt_install 			\
-	google-chrome 		\
-	skypeforlinux-bin 	\
-	moka-icon-theme-git
+yaourt_install 				\
+	google-chrome 			\
+	numix-square-icon-theme-git
+	#skypeforlinux-bin 	\
+	#moka-icon-theme-git
 
 # install fonts
 install_powerline_fonts
