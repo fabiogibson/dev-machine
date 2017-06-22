@@ -25,24 +25,35 @@ What will be installed
    * Go
    
 **Command-line Tools**
-   * vim
-   * docker
-   * wrk
-   * silversearcher-ag
-   * autojump 
-   * zsh
-   * tmux
-   * oh-my-zsh
-   * powerline 
-   * isort 
-   * pep8 
-   * httpie
-   * thefuck
-   * browser-sync
-   * mockserver
+   * Wget
+   * Vim
+   * Docker
+   * Wrk
+   * Ag
+   * AutoJump 
+   * Zsh
+   * Tmux
+   * Oh-my-zsh
+   * Powerline 
+   * iSort 
+   * Pep8 
+   * Httpie
+   * The Fuck
+   * Browser Sync
+   * Mockserver
+   
+**Fonts**
+   * Powerline
+   * FiraCode
    
 **X tools**
    * conky
    * synapse
    * meld
    * tint2
+   * sublime text 3
+   * pgadmin 4
+
+**Xfce Themes**
+   * Moka icons
+   * Zukitwo
