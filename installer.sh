@@ -160,6 +160,7 @@ pip_install py2 thefuck tox
 pyenv global 3.6.1 2.7.13 py3 py2
 
 pacman_install 				\
+	wget				\
 	zsh				\
 	yaourt				\
 	yaourt-gui-manjaro		\
