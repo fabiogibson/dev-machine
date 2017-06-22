@@ -25,28 +25,36 @@ What will be installed
    * Go
    
 **Command-line Tools**
-   * Wget
-   * Vim
-   * Docker
-   * Wrk
    * Ag
    * AutoJump 
-   * Zsh
-   * Tmux
+   * Browser Sync
+   * Docker
+   * Httpie
+   * Mock Server
    * Oh-my-zsh
    * Powerline 
-   * iSort 
-   * Pep8 
-   * Httpie
    * The Fuck
-   * Browser Sync
-   * Mockserver
+   * Tmux
+   * Vim
+   * Xclip
+   * Wget   
+   * Wrk
+   * Zsh
+   
+**Global Python Development Tools**
+   * isort 
+   * pep8
+   * pyenv
+   * tox
+   * virtualenv
+   * virtualenv-wrapper
    
 **Fonts**
    * Powerline
    * FiraCode
+   * Noto
    
-**X tools**
+**X Tools**
    * conky
    * synapse
    * meld
