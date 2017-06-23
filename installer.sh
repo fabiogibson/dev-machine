@@ -127,6 +127,7 @@ install_dotfiles() {
 	copy_dotfiles $HOME/.config/autostart autostart
 	copy_dotfiles $HOME/.config/conky conky
 	copy_dotfiles $HOME/.config/tint2 tint2
+	copy_dotfiles $HOME/.config/gconf/apps/dockbarx dockbarx
 }
 
 configure_git() {
