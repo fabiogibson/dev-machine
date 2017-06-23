@@ -3,8 +3,9 @@
 <channel name="xfce4-panel" version="1.0">
   <property name="panels" type="array">
     <value type="int" value="0"/>
+    <value type="int" value="1"/>
     <property name="panel-0" type="empty">
-      <property name="position" type="string" value="p=6;x=960;y=14"/>
+      <property name="position" type="string" value="p=6;x=960;y=16"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="false"/>
       <property name="role" type="string" value="xfce4-panel-12965750720"/>
@@ -14,9 +15,9 @@
       <property name="mode" type="uint" value="0"/>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="background-color" type="array">
-        <value type="uint" value="0"/>
-        <value type="uint" value="0"/>
-        <value type="uint" value="0"/>
+        <value type="uint" value="5395"/>
+        <value type="uint" value="7058"/>
+        <value type="uint" value="8085"/>
         <value type="uint" value="65535"/>
       </property>
       <property name="background-alpha" type="uint" value="100"/>
@@ -30,9 +31,22 @@
         <value type="int" value="6"/>
         <value type="int" value="3"/>
         <value type="int" value="10"/>
-        <value type="int" value="11"/>
         <value type="int" value="4"/>
       </property>
+    </property>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=8;x=124;y=1055"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="11"/>
+        <value type="int" value="7"/>
+        <value type="int" value="9"/>
+        <value type="int" value="8"/>
+      </property>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-alpha" type="uint" value="0"/>
+      <property name="autohide-behavior" type="uint" value="1"/>
+      <property name="size" type="uint" value="48"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -42,13 +56,9 @@
       <property name="timezone" type="string" value="Brazil/East"/>
       <property name="digital-format" type="string" value="%A - %d de %B de %Y - %R"/>
     </property>
-    <property name="plugin-2" type="string" value="separator">
-      <property name="expand" type="bool" value="true"/>
-      <property name="style" type="uint" value="1"/>
-    </property>
     <property name="plugin-3" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
-      <property name="style" type="uint" value="1"/>
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-4" type="string" value="actions">
       <property name="items" type="array">
@@ -66,11 +76,41 @@
       </property>
       <property name="appearance" type="uint" value="1"/>
     </property>
-    <property name="plugin-5" type="string" value="whiskermenu"/>
     <property name="plugin-6" type="string" value="weather"/>
     <property name="plugin-10" type="string" value="xfce4-time-out-plugin"/>
+    <property name="plugin-2" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-5" type="string" value="whiskermenu"/>
+    <property name="plugin-7" type="string" value="dockbarx">
+      <property name="orient" type="string" value="bottom"/>
+      <property name="alpha" type="int" value="0"/>
+      <property name="mode" type="int" value="0"/>
+      <property name="block-autohide" type="bool" value="false"/>
+    </property>
+    <property name="plugin-8" type="string" value="systray">
+      <property name="names-visible" type="array">
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="drop-down terminal"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="pamac-tray"/>
+        <value type="string" value="pidgin"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="pa-applet"/>
+        <value type="string" value="albert"/>
+        <value type="string" value="notes"/>
+        <value type="string" value="skypeforlinux"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="size-max" type="uint" value="26"/>
+    </property>
+    <property name="plugin-9" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
     <property name="plugin-11" type="string" value="separator">
-      <property name="style" type="uint" value="1"/>
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
     </property>
   </property>
   <property name="configver" type="int" value="2"/>
