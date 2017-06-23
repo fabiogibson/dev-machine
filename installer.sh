@@ -171,7 +171,6 @@ pacman_install 				\
 	autojump 			\
 	xclip				\
 	conky				\
-	synapse 			\
 	nodejs				\
 	npm				\
 	vim 				\
@@ -187,7 +186,8 @@ yaourt_install 				\
 	skypeforlinux-bin 		\
 	enpass-bin			\
 	zukitwo-themes-git		\
-	moka-icon-theme-git
+	moka-icon-theme-git		\
+	albert
 
 # install fonts
 install_powerline_fonts
