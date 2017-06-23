@@ -57,6 +57,9 @@ mkcd() {
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# custom alias
-alias ll='ls -l --color -h --group-directories-first'
+# fast list dir alias
 alias l='ls --color -h --group-directories-first'
+alias ls='ls --color -h --group-directories-first'
+alias la='ls --color -ha --group-directories-first'
+alias ll='ls -l --color -h --group-directories-first'
+alias lla='ls -l --color -ha --group-directories-first'
