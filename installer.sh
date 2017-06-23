@@ -175,9 +175,10 @@ pacman_install 				\
 	npm				\
 	vim 				\
 	meld				\
-	tint2				\
 	dropbox				\
 	pgadmin3			\
+	dockbarx			\
+	xfce4-dockbarx-plugin		\
 	noto-fonts
 
 yaourt_install 				\
