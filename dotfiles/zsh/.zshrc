@@ -60,4 +60,3 @@ source $ZSH/oh-my-zsh.sh
 # custom alias
 alias ll='ls -l --color -h --group-directories-first'
 alias l='ls --color -h --group-directories-first'
-alias ls='l'
