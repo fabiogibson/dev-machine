@@ -1,6 +1,6 @@
 export ZSH=${HOME}/.oh-my-zsh
 
-ZSH_THEME="af-magic"
+ZSH_THEME="arrow"
 ZSH_TMUX_AUTOSTART="true"
 
 plugins=(git docker autojump archlinux tmux common-aliases django extract httpie)
