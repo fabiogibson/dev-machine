@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
-Exec=synapse
-Icon=synapse
+Exec=albert
+Icon=albert
 X-GNOME-Autostart-enabled=true
 X-MATE-Autostart-enabled=true
 NoDisplay=false
-Hidden=true
-Name=Synapse
+Hidden=false
+Name=Albert
 Comment=Application Launcher
 X-GNOME-Autostart-Delay=0
