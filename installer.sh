@@ -177,7 +177,7 @@ pacman_install 				\
 	meld				\
 	tint2				\
 	dropbox				\
-	pgadmin4			\
+	pgadmin3			\
 	noto-fonts
 
 yaourt_install 				\
