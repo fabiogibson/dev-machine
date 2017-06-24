@@ -122,7 +122,7 @@ create_virtual_env() {
 install_dotfiles() {
 	copy_dotfiles $HOME zsh
 	copy_dotfiles $HOME tmux
-	copy_dotfiles $HOME/.config alfred
+	copy_dotfiles $HOME/.config albert
 	copy_dotfiles $HOME/.config/xfce4/terminal terminal
 	copy_dotfiles $HOME/.config/xfce4/xfconf/xfce-perchannel-xml xfce4
 	copy_dotfiles $HOME/.config/autostart autostart
