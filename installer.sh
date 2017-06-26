@@ -175,7 +175,6 @@ pacman_install 				\
 	npm				\
 	vim 				\
 	meld				\
-	dropbox				\
 	pgadmin3			\
 	dockbarx			\
 	xfce4-dockbarx-plugin		\
@@ -183,7 +182,7 @@ pacman_install 				\
 
 yaourt_install 				\
 	sublime-text-dev		\
-	google-chrome 			\
+	chromium			\
 	skypeforlinux-bin 		\
 	enpass-bin			\
 	zukitwo-themes-git		\
@@ -203,6 +202,9 @@ npm_install mockserver browser-sync coffee-script typescript
 # configure machine
 install_dotfiles
 configure_git
+
+# add current user to docker group
+sudo usermod -aG docker `whoami`
 
 # create workspace directories
 mkdir -p $HOME/.virtualenvs $HOME/Projects
