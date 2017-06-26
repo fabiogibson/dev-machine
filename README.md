@@ -29,6 +29,7 @@ What will be installed
    * AutoJump 
    * Browser Sync
    * Docker
+   * Docker Compose
    * Httpie
    * Mock Server
    * Oh-my-zsh
