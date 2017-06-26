@@ -57,12 +57,11 @@ What will be installed
    
 **X Tools**
    * Conky
-   * Synapse
+   * Albert
    * Meld
    * Tint 2
    * Sublime Text 3
    * pgAdmin 4
 
-**Xfce Themes**
-   * Moka icons
-   * Zukitwo
+**Tweaks**
+   * Arc GTK Theme and Icons
