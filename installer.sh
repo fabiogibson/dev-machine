@@ -176,6 +176,7 @@ pacman_install 				\
 	npm				\
 	vim 				\
 	meld				\
+	chromium			\
 	pgadmin3			\
 	dockbarx			\
 	xfce4-dockbarx-plugin		\
@@ -183,7 +184,6 @@ pacman_install 				\
 
 yaourt_install 				\
 	sublime-text-dev		\
-	chromium			\
 	skypeforlinux-bin 		\
 	enpass-bin			\
 	zukitwo-themes-git		\
@@ -215,3 +215,6 @@ chsh -s $(grep /zsh$ /etc/shells | tail -1)
 env zsh
 
 echo It\'s all done!
+read -p "Press any key to restart..."
+
+reboot
