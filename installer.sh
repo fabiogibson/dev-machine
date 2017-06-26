@@ -213,8 +213,3 @@ mkdir -p $HOME/.virtualenvs $HOME/Projects
 # switch shell to zsh
 chsh -s $(grep /zsh$ /etc/shells | tail -1)
 env zsh
-
-echo It\'s all done!
-read -p "Press any key to restart..."
-
-reboot
