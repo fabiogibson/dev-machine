@@ -163,7 +163,6 @@ pacman_install 				\
 	wget				\
 	zsh				\
 	yaourt				\
-	yaourt-gui-manjaro		\
 	spacefm				\
 	tmux 				\
 	docker				\
