@@ -166,6 +166,7 @@ pacman_install 				\
 	spacefm				\
 	tmux 				\
 	docker				\
+	docker-compose			\
 	the_silver_searcher 		\
 	autojump 			\
 	xclip				\
