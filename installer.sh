@@ -180,14 +180,14 @@ pacman_install 				\
 	pgadmin3			\
 	dockbarx			\
 	xfce4-dockbarx-plugin		\
+	arc-gtk-theme			\
+	arc-icon-theme			\
 	noto-fonts
 
 yaourt_install 				\
 	sublime-text-dev		\
 	skypeforlinux-bin 		\
 	enpass-bin			\
-	zukitwo-themes-git		\
-	moka-icon-theme-git		\
 	albert
 
 # install fonts
