@@ -88,6 +88,7 @@ install_wrk() {
 install_aureola() {
 	git_clone https://github.com/erikdubois/Aureola $tmpdir/aureola
 	$tmpdir/aureola/spark/install-conky.sh
+	cd $HOME
 }
 
 ##################################################
