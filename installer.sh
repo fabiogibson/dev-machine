@@ -141,11 +141,20 @@ configure_git() {
 ##################################################
 # Machine setup goes here
 ##################################################
-sudo pacman -Syyu --noconfirm
-	
+
+# clone this repository in $HOME/tmp
 tmpdir=$HOME/tmp
 mkdir -p $tmpdir
 git_clone https://github.com/fabiogibson/dev-machine.git $tmpdir/dev-machine
+
+# sync pacman and upgrade system packages
+sudo pacman -Syyu --noconfirm
+
+# ensure yaourt is available.
+pacman_install yaourt
+
+# install dockbarx with xfce-plugin before setting up python enviroments.
+yaourt_install dockbarx xfce4-dockbarx-plugin
 
 # Setup python enviroments
 install_pyenv
@@ -162,7 +171,6 @@ pyenv global 3.6.1 2.7.13 py3 py2
 pacman_install 				\
 	wget				\
 	zsh				\
-	yaourt				\
 	tmux 				\
 	docker				\
 	docker-compose			\
@@ -181,7 +189,7 @@ pacman_install 				\
 	noto-fonts			\
 	dockbarx			\
 	xfce4-dockbarx-plugin
-
+	
 yaourt_install 				\
 	sublime-text-dev		\
 	skypeforlinux-bin 		\
