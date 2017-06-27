@@ -164,7 +164,6 @@ pacman_install 				\
 	wget				\
 	zsh				\
 	yaourt				\
-	spacefm				\
 	tmux 				\
 	docker				\
 	docker-compose			\
