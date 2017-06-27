@@ -64,14 +64,9 @@ pip_install() {
 install_pyenv() {
 	export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 	export PYENV_ROOT="${HOME}/.pyenv"
-
-	if [ ! -d "$PYENV_ROOT" ]; then
-		export PATH="${PYENV_ROOT}/bin:$PATH"
-		printf "Installing PyEnv..."
-		remote_bash https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer
-		git_clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ${PYENV_ROOT}/plugins/pyenv-virtualenvwrapper
-	fi
-
+	export PATH="${PYENV_ROOT}/bin:$PATH"
+	remote_bash https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer
+	git_clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ${PYENV_ROOT}/plugins/pyenv-virtualenvwrapper
 	eval "$(pyenv init -)"
 }
 	
