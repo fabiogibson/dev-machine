@@ -186,6 +186,8 @@ pacman_install 				\
 	pgadmin3			\
 	arc-gtk-theme			\
 	arc-icon-theme			\
+	xfce4-weather-plugin		\
+	xfce4-clipman-plugin		\
 	noto-fonts
 	
 yaourt_install 				\
