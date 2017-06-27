@@ -138,6 +138,11 @@ configure_git() {
 	git config --global diff.external meld_git	
 }
 
+enable_vnstat() {
+	sudo systemctl start vnstat.service
+	sudo systemctl enable vnstat.service
+}
+
 ##################################################
 # Machine setup goes here
 ##################################################
@@ -210,6 +215,7 @@ npm_install mockserver browser-sync coffee-script typescript
 # configure machine
 install_dotfiles
 configure_git
+enable_vnstat
 
 # add current user to docker group
 sudo usermod -aG docker `whoami`
