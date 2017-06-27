@@ -184,19 +184,19 @@ yaourt_install 				\
 	sublime-text-dev		\
 	skypeforlinux-bin 		\
 	enpass-bin			\
-	albert				\
-	dockbarx			\
-	xfce4-dockbarx-plugin
+	albert
+#	dockbarx			\
+#	xfce4-dockbarx-plugin
 
 # install fonts
 install_powerline_fonts
 install_firacode
 
 # install tools
-install_wrk
+# install_wrk
 install_aureola
 install_ohmyzsh
-npm_install mockserver browser-sync coffee-script typescript
+# npm_install mockserver browser-sync coffee-script typescript
 
 # configure machine
 install_dotfiles
