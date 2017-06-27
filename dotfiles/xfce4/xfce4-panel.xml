@@ -45,7 +45,7 @@
       </property>
       <property name="background-style" type="uint" value="1"/>
       <property name="background-alpha" type="uint" value="0"/>
-      <property name="autohide-behavior" type="uint" value="1"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
       <property name="size" type="uint" value="48"/>
     </property>
   </property>
