@@ -186,9 +186,7 @@ pacman_install 				\
 	pgadmin3			\
 	arc-gtk-theme			\
 	arc-icon-theme			\
-	noto-fonts			\
-	dockbarx			\
-	xfce4-dockbarx-plugin
+	noto-fonts
 	
 yaourt_install 				\
 	sublime-text-dev		\
