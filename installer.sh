@@ -8,11 +8,13 @@ cmd_exists() {
 }
 
 git_clone() {
-	umask g-w,o-w
-	env git clone --depth=1 $1 $2 || {
-  		printf "Error: git clone of $1 failed\n"
-  		exit 1
-  	}
+	if [ -d "$2" ]; then
+    		umask g-w,o-w
+		env git clone --depth=1 $1 $2 || {
+			printf "Error: git clone of $1 failed\n"
+			exit 1
+		}
+	fi
 }
 
 copy_dotfiles() {
