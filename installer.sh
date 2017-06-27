@@ -41,7 +41,6 @@ remote_bash() {
 # Package Managers
 ##################################################
 pacman_install() {
-	pacman -Syy
 	safe_install "sudo pacman -S --noconfirm" $@
 }
 
@@ -142,6 +141,8 @@ configure_git() {
 ##################################################
 # Machine setup goes here
 ##################################################
+sudo pacman -Syyu --noconfirm
+	
 tmpdir=$HOME/tmp
 mkdir -p $tmpdir
 git_clone https://github.com/fabiogibson/dev-machine.git $tmpdir/dev-machine
