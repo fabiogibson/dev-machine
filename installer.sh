@@ -174,6 +174,7 @@ pacman_install 				\
 	tmux 				\
 	docker				\
 	docker-compose			\
+	vnstat				\
 	the_silver_searcher 		\
 	autojump 			\
 	xclip				\
