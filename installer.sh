@@ -175,8 +175,6 @@ pacman_install 				\
 	meld				\
 	chromium			\
 	pgadmin3			\
-	dockbarx			\
-	xfce4-dockbarx-plugin		\
 	arc-gtk-theme			\
 	arc-icon-theme			\
 	noto-fonts
@@ -185,7 +183,9 @@ yaourt_install 				\
 	sublime-text-dev		\
 	skypeforlinux-bin 		\
 	enpass-bin			\
-	albert
+	albert				\
+	dockbarx			\
+	xfce4-dockbarx-plugin
 
 # install fonts
 install_powerline_fonts
