@@ -131,7 +131,7 @@ install_dotfiles() {
 configure_git() {
 	echo Setting up git globals...
 	# use this hack to be able to invoke git diff instead of git difftool
-	printf "#!/bin/sh\nmeld $2 $5" >> /usr/local/bin/meld_git
+	echo '#!/bin/sh\nmeld $2 $5' > $tmpdir/meld_git & sudo cp $tmpdir/meld_git /usr/local/bin
 	sudo chmod +x /usr/local/bin/meld_git
 	git config --global user.name "Fabio Gibson"
 	git config --global user.email "fabiogibson@hotmail.com"
