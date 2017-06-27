@@ -8,7 +8,7 @@ cmd_exists() {
 }
 
 git_clone() {
-	if [ -d "$2" ]; then
+	if [ ! -d "$2" ]; then
     		umask g-w,o-w
 		env git clone --depth=1 $1 $2 || {
 			printf "Error: git clone of $1 failed\n"
