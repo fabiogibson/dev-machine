@@ -41,6 +41,7 @@ remote_bash() {
 # Package Managers
 ##################################################
 pacman_install() {
+	pacman -Syu
 	safe_install "sudo pacman -S --noconfirm" $@
 }
 
