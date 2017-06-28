@@ -37,6 +37,14 @@ remote_bash() {
 	(curl -L $1 | bash) 2>&1
 }
 
+
+sysctl_enable() {
+	for unit in "$@"; do
+		sudo systemctl start $unit
+		sudo systemctl enable $unit
+	done
+}
+
 ##################################################
 # Package Managers
 ##################################################
@@ -138,11 +146,6 @@ configure_git() {
 	git config --global diff.external meld_git	
 }
 
-enable_vnstat() {
-	sudo systemctl start vnstat.service
-	sudo systemctl enable vnstat.service
-}
-
 ##################################################
 # Machine setup goes here
 ##################################################
@@ -215,7 +218,9 @@ npm_install mockserver browser-sync coffee-script typescript
 # configure machine
 install_dotfiles
 configure_git
-enable_vnstat
+
+# enable systemctl units
+sysctl_enable docker vnstat.service
 
 # add current user to docker group
 sudo usermod -aG docker `whoami`
