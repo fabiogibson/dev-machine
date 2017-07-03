@@ -1,5 +1,3 @@
-## This script is not functional yet.
-
 My development machine.
 
 Installation
