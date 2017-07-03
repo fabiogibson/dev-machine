@@ -177,6 +177,10 @@ pip_install py2 thefuck tox
 pyenv global 3.6.1 2.7.13 py3 py2
 
 pacman_install 				\
+	base-devel			\
+	openssl				\
+	openssh				\
+	libffi				\
 	wget				\
 	zsh				\
 	tmux 				\
@@ -197,7 +201,8 @@ pacman_install 				\
 	arc-icon-theme			\
 	xfce4-weather-plugin		\
 	xfce4-clipman-plugin		\
-	noto-fonts
+	noto-fonts			\
+	numlockx			\
 	
 yaourt_install 				\
 	sublime-text-dev		\
