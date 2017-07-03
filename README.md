@@ -59,7 +59,7 @@ What will be installed
    * Meld
    * Tint 2
    * Sublime Text 3
-   * pgAdmin 4
+   * pgAdmin 3
 
 **Tweaks**
    * Arc GTK Theme and Icons
