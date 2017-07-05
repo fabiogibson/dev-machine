@@ -235,7 +235,7 @@ sysctl_enable docker vnstat.service
 sudo usermod -aG docker `whoami`
 
 # create workspace directories
-mkdir -p $HOME/.virtualenvs $HOME/Projects
+mkdir -p $HOME/Projects
 
 # switch shell to zsh
 chsh -s $(grep /zsh$ /etc/shells | tail -1)
