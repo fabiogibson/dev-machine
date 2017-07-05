@@ -74,12 +74,15 @@ install_pyenv() {
 	export PYENV_ROOT="${HOME}/.pyenv"
 	export PATH="${PYENV_ROOT}/bin:$PATH"
 	remote_bash https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer
-	git_clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ${PYENV_ROOT}/plugins/pyenv-virtualenvwrapper
 	eval "$(pyenv init -)"
 }
 	
 install_ohmyzsh() {
 	git_clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	# install spaceship theme
+	curl -o ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
+	# install my envrc plugin
+	curl --create-dirs -o ~/.oh-my-zsh/custom/plugins/envrc/envrc.plugin.zsh https://raw.githubusercontent.com/fabiogibson/envrc-zsh-plugin/master/envrc.plugin.zsh
 }
 
 install_wrk() {
