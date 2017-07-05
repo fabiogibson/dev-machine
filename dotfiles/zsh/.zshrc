@@ -1,9 +1,9 @@
 export ZSH=${HOME}/.oh-my-zsh
 
-ZSH_THEME="arrow"
+ZSH_THEME="spaceship"
 ZSH_TMUX_AUTOSTART="true"
 
-plugins=(git docker autojump archlinux tmux common-aliases django extract httpie)
+plugins=(git docker autojump archlinux tmux common-aliases django extract httpie envrc) 
 
 export PYENV_ROOT="${HOME}/.pyenv"
 export EDITOR=vim
@@ -11,7 +11,7 @@ export PATH="${PYENV_ROOT}/bin:$PATH"
 
 # load pyenv and pyenv-virtualenvwrapper
 eval "$(pyenv init -)"
-pyenv virtualenvwrapper_lazy
+# pyenv virtualenvwrapper_lazy
 
 # thefuck
 eval $(thefuck --alias fk)
@@ -63,3 +63,6 @@ alias ls='ls --color -h --group-directories-first'
 alias la='ls --color -ha --group-directories-first'
 alias ll='ls -l --color -h --group-directories-first'
 alias lla='ls -l --color -ha --group-directories-first'
+
+# fast rm alias
+alias rf='rm -rf'
