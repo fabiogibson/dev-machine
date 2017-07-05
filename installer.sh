@@ -143,8 +143,15 @@ configure_git() {
 	# use this hack to be able to invoke git diff instead of git difftool
 	printf '#!/bin/sh\nmeld $2 $5' > $tmpdir/meld_git & sudo cp $tmpdir/meld_git /usr/local/bin
 	sudo chmod +x /usr/local/bin/meld_git
-	git config --global user.name "Fabio Gibson"
-	git config --global user.email "fabiogibson@hotmail.com"
+	
+	printf "What's your full name? (Global git user.name)\n"
+	read name
+	git config --global user.name $name
+	
+	printf "What's your e-mail address? (Global git user.email)\n"
+	read email
+	git config --global user.email $email
+	
 	git config --global merge.tool meld_git
 	git config --global diff.external meld_git	
 }
