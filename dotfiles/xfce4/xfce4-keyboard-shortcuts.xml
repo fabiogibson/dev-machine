@@ -27,7 +27,6 @@
       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
       <property name="XF86Mail" type="string" value="exo-open --launch MailReader"/>
       <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;p" type="string" value="xfce4-display-settings --minimal"/>
@@ -38,6 +37,10 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;m" type="string" value="xfce4-taskmanager"/>
       <property name="XF86Calculator" type="string" value="galculator"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="xfce4-terminal"/>
+      <property name="&lt;Super&gt;l" type="string" value="light-locker-command -l"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="light-locker-command -l"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;Right" type="string" value="move-window-to-monitor -r"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;Left" type="string" value="move-window-to-monitor -l"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -177,10 +180,10 @@
       <property name="&lt;Primary&gt;q" type="string" value="close_window_key"/>
       <property name="&lt;Super&gt;Up" type="string" value="maximize_window_key"/>
       <property name="&lt;Super&gt;Down" type="string" value="hide_window_key"/>
-      <property name="&lt;Super&gt;r" type="string" value="resize_window_key"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;Up" type="string" value="fullscreen_key"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
+      <property name="Alt_L" type="string" value="resize_window_key"/>
     </property>
   </property>
   <property name="providers" type="array">
