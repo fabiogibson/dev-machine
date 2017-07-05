@@ -210,6 +210,7 @@ pacman_install 				\
 yaourt_install 				\
 	sublime-text-dev		\
 	skypeforlinux-bin 		\
+	slack-desktop			\
 	enpass-bin			\
 	albert
 
