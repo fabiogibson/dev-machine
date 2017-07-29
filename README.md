@@ -20,7 +20,6 @@ What will be installed
    * NodeJs
    * Coffe-script
    * Type-script
-   * Go
    
 **Command-line Tools**
    * Ag
