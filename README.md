@@ -16,7 +16,7 @@ What will be installed
    
 **Languages/Frameworks**
    * Python 2.7.13
-   * Python 3.6.1
+   * Python 3.6.2
    * NodeJs
    * Coffe-script
    * Type-script
